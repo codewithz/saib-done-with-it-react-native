@@ -5,9 +5,9 @@ import colors from '../config/colors'
 
 export default function AppText(props) {
 
-    const { children, color = "black" } = props
+    const { children, color = "black", style } = props
     return (
-        <Text style={[styles.text, { color: colors[color] }]}>{props.children}</Text>
+        <Text style={[styles.text, { color: colors[color] }, style]}>{props.children}</Text>
     )
 }
 
