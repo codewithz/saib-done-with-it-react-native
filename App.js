@@ -8,10 +8,7 @@ import AppButton from './app/components/AppButton';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <AppButton title="Login" />
-
-    </View>
+    <WelcomeScreen />
 
   );
 }
