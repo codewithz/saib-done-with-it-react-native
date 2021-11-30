@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native';
 
+import colors from '../config/colors';
 export default function ViewImageScreen() {
     return (
 
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     closeIcon: {
         width: 50,
         height: 50,
-        backgroundColor: "#fc5c65",
+        backgroundColor: colors.primary,
         position: 'absolute',
         top: 30,
         left: 30,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     deleteIcon: {
         width: 50,
         height: 50,
-        backgroundColor: "#4ecdc4",
+        backgroundColor: colors.secondary,
         position: 'absolute',
         top: 30,
         right: 30,
