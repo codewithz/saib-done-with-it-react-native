@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
+import { Formik } from 'formik';
 
 
 import Screen from './../components/Screen';
@@ -16,32 +17,50 @@ export default function LoginScreen(props) {
                 style={styles.logo}
                 source={require('../assets/logo-red.png')}
             />
-            <AppTextInput
-                icon="email"
-                keyboardType="email-address"
-                placeholder='Email'
-                textContentType="emailAddress"
-                autoCorrect={false}
-                autoCapitalize="none"
-                onChangeText={(text) => setUsername(text)}
 
-            />
-            <AppTextInput
-                icon="lock"
-                secureTextEntry={true}
-                placeholder='Password'
-                textContentType="password"
-                autoCorrect={false}
-                autoCapitalize="none"
-                onChangeText={(text) => setPassword(text)}
+            <Formik
+                initialValues={{ username: '', password: '' }}
+                onSubmit={values => console.log(values)}
+
+            >
+                {({ handleChange, handleSubmit }) =>
+
+                (
+                    <React.Fragment>
+                        <AppTextInput
+                            icon="email"
+                            keyboardType="email-address"
+                            placeholder='Email'
+                            textContentType="emailAddress"
+                            autoCorrect={false}
+                            autoCapitalize="none"
+                            onChangeText={handleChange('username')}
+
+                        />
+                        <AppTextInput
+                            icon="lock"
+                            secureTextEntry={true}
+                            placeholder='Password'
+                            textContentType="password"
+                            autoCorrect={false}
+                            autoCapitalize="none"
+                            onChangeText={handleChange('password')}
 
 
-            />
+                        />
 
-            <AppButton
-                title="Login"
-                onPress={() => console.log('Button Clicked', username, password)}
-            />
+                        <AppButton
+                            title="Login"
+                            onPress={handleSubmit}
+                        />
+                    </React.Fragment>
+                )
+
+                }
+            </Formik>
+
+
+
         </Screen>
     )
 }
