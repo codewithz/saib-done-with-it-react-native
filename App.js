@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, TextInput } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TextInput, Switch } from 'react-native';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 
@@ -17,11 +17,12 @@ import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
 
-
+  const [enableBluetooth, setEnableBluetooth] = useState(false);
 
   return (
     <Screen>
-      <AppTextInput icon='email' placeholder='Username' />
+      <Switch value={enableBluetooth} onValueChange={newValue => setEnableBluetooth(newValue)} />
+      <Text> Bluetooth</Text>
     </Screen>
   );
 }
