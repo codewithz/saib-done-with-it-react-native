@@ -14,6 +14,7 @@ import ListItem from './app/components/ListItem';
 import AccountScreen from './app/screens/AccountScreen';
 import ListingsScreen from './app/screens/ListingsScreen';
 import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/AppPicker';
 
 export default function App() {
 
@@ -21,9 +22,8 @@ export default function App() {
 
   return (
     <Screen>
-      <Switch value={enableBluetooth}
-        onValueChange={newValue => setEnableBluetooth(newValue)} />
-      <Text> Bluetooth</Text>
+      <AppPicker icon='apps' placeholder='Categories' />
+      <AppTextInput icon='email' placeholder='Email' />
     </Screen>
   );
 }
