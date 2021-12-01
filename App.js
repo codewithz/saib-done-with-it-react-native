@@ -21,7 +21,8 @@ export default function App() {
 
   return (
     <Screen>
-      <Switch value={enableBluetooth} onValueChange={newValue => setEnableBluetooth(newValue)} />
+      <Switch value={enableBluetooth}
+        onValueChange={newValue => setEnableBluetooth(newValue)} />
       <Text> Bluetooth</Text>
     </Screen>
   );
