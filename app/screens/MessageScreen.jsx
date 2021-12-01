@@ -5,6 +5,7 @@ import ListItem from '../components/ListItem'
 import Constants from 'expo-constants';
 
 import Screen from '../components/Screen';
+import ListItemSeparator from './../components/ListItemSeparator';
 
 
 
@@ -39,6 +40,7 @@ export default function MessageScreen() {
                         image={item.image}
 
                     />}
+                ItemSeparatorComponent={ListItemSeparator}
 
             />
         </Screen>
