@@ -27,7 +27,7 @@ const messages = [
 
 
 export default function MessageScreen() {
-    console.log(Constants);
+
     return (
         <Screen>
             <FlatList
@@ -38,6 +38,7 @@ export default function MessageScreen() {
                         title={item.title}
                         subtitle={item.description}
                         image={item.image}
+                        onPress={() => console.log('Item Pressed', item)}
 
                     />}
                 ItemSeparatorComponent={ListItemSeparator}
