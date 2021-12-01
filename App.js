@@ -11,17 +11,11 @@ import MessageScreen from './app/screens/MessageScreen';
 import Screen from './app/components/Screen';
 import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
+import AccountScreen from './app/screens/AccountScreen';
 
 export default function App() {
   return (
-    <Screen>
-      <ListItem title='My Title'
-        ImageComponent={<Icon
-          name='email' backgroundColor='red' iconColor='white' size={50}
-        />}
-
-      />
-    </Screen>
+    <AccountScreen />
   );
 }
 
