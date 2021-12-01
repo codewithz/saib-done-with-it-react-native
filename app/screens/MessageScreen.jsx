@@ -28,7 +28,7 @@ const initialMessages = [
 
 
 export default function MessageScreen() {
-
+    const [refreshing, setRefreshing] = useState(false);
     const [messages, setMessages] = useState(initialMessages);
     const handleDelete = (message) => {
         //Delete the message from messages
@@ -55,6 +55,17 @@ export default function MessageScreen() {
 
                     />}
                 ItemSeparatorComponent={ListItemSeparator}
+                refreshing={refreshing}
+                onRefresh={() => {
+                    setMessages([
+                        {
+                            id: 3,
+                            title: 'T3',
+                            description: 'D3',
+                            image: require('../assets/zartab.jpg')
+                        }
+                    ])
+                }}
 
             />
         </Screen>
