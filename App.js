@@ -24,11 +24,13 @@ const categories = [
 
 export default function App() {
 
-  const [enableBluetooth, setEnableBluetooth] = useState(false);
-
+  const [category, setCategory] = useState()
   return (
     <Screen>
-      <AppPicker items={categories} icon='apps' placeholder='Categories' />
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={item => setCategory(item)}
+        items={categories} icon='apps' placeholder='Categories' />
       <AppTextInput icon='email' placeholder='Email' />
     </Screen>
   );

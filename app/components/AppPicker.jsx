@@ -11,7 +11,7 @@ import Screen from './Screen';
 import PickerItem from './PickerItem';
 
 export default function AppPicker(props) {
-    const { icon, placeholder, items, ...otherProps } = props;
+    const { icon, placeholder, items, selectedItem, onSelectItem, ...otherProps } = props;
     const [modalVisible, setModalVisible] = useState(false);
     return (
         <React.Fragment>
@@ -22,7 +22,7 @@ export default function AppPicker(props) {
                         color={defaultStyles.colors.medium}
                         size={20}
                         style={styles.icon} />}
-                    <AppText style={styles.text}>{placeholder}</AppText>
+                    <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
 
                     <MaterialCommunityIcons
                         name='chevron-down'
@@ -44,7 +44,12 @@ export default function AppPicker(props) {
                         renderItem={({ item }) =>
                             <PickerItem
                                 label={item.label}
-                                onPress={() => console.log('Item Pressed', item)}
+                                onPress={() => {
+                                    setModalVisible(false);
+                                    onSelectItem(item)
+                                }
+
+                                }
                             />
 
                         }
