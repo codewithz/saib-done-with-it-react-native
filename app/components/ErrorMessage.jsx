@@ -5,9 +5,9 @@ import AppText from './AppText'
 
 export default function ErrorMessage(props) {
 
-    const { error } = props;
+    const { error, visible } = props;
 
-    if (!error) return null;
+    if (!error || !visible) return null;
 
     return (
         <AppText style={{ color: 'red' }}>{error}</AppText>

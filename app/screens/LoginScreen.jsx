@@ -31,7 +31,7 @@ export default function LoginScreen(props) {
                 validationSchema={validationSchema}
 
             >
-                {({ handleChange, handleSubmit, errors }) =>
+                {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) =>
 
                 (
                     <React.Fragment>
@@ -43,9 +43,10 @@ export default function LoginScreen(props) {
                             autoCorrect={false}
                             autoCapitalize="none"
                             onChangeText={handleChange('username')}
+                            onBlur={() => setFieldTouched("username")}
 
                         />
-                        <ErrorMessage error={errors.username} />
+                        <ErrorMessage error={errors.username} visible={touched.username} />
                         <AppTextInput
                             icon="lock"
                             secureTextEntry={true}
@@ -54,10 +55,11 @@ export default function LoginScreen(props) {
                             autoCorrect={false}
                             autoCapitalize="none"
                             onChangeText={handleChange('password')}
+                            onBlur={() => setFieldTouched("password")}
 
 
                         />
-                        <ErrorMessage error={errors.password} />
+                        <ErrorMessage error={errors.password} visible={touched.password} />
 
                         <AppButton
                             title="Login"
