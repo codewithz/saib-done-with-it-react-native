@@ -27,7 +27,7 @@ const Link = () => {
   return (
     <Button
       title='Click'
-      onPress={() => navigation.navigate('TweetDetails', { id: 1, name: 'First Tweet' })}
+      onPress={() => navigation.navigate('TweetDetails', { id: 1, name: 'Second Tweet' })}
     />
   )
 }
@@ -53,7 +53,7 @@ const StackNavigator = () => (
     <Stack.Screen
       name="TweetDetails"
       component={TweetDetails}
-      options={{ title: 'Tweet Details SAIB' }}
+      options={({ route }) => ({ title: route.params.name })}
     />
   </Stack.Navigator>
 );
