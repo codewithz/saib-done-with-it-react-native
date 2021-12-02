@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 
 import Screen from './../components/Screen';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
+import AppText from './../components/AppText';
+
+const validationSchema = Yup.object().shape({
+    username: Yup.string().required().email().label('Email'),
+    password: Yup.string().required().min(4).label('Password')
+})
 
 export default function LoginScreen(props) {
 
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+
     return (
         <Screen>
             <Image
@@ -21,9 +27,10 @@ export default function LoginScreen(props) {
             <Formik
                 initialValues={{ username: '', password: '' }}
                 onSubmit={values => console.log(values)}
+                validationSchema={validationSchema}
 
             >
-                {({ handleChange, handleSubmit }) =>
+                {({ handleChange, handleSubmit, errors }) =>
 
                 (
                     <React.Fragment>
@@ -37,6 +44,7 @@ export default function LoginScreen(props) {
                             onChangeText={handleChange('username')}
 
                         />
+                        <AppText style={{ color: 'red' }}>{errors.username}</AppText>
                         <AppTextInput
                             icon="lock"
                             secureTextEntry={true}
@@ -48,6 +56,7 @@ export default function LoginScreen(props) {
 
 
                         />
+                        <AppText style={{ color: 'red' }}>{errors.password}</AppText>
 
                         <AppButton
                             title="Login"
