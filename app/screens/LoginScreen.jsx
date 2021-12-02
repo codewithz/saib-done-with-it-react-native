@@ -9,6 +9,7 @@ import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
 import AppText from './../components/AppText';
 import ErrorMessage from '../components/ErrorMessage';
+import AppFormField from '../components/AppFormField';
 
 const validationSchema = Yup.object().shape({
     username: Yup.string().required().email().label('Email'),
@@ -31,35 +32,28 @@ export default function LoginScreen(props) {
                 validationSchema={validationSchema}
 
             >
-                {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) =>
+                {({ handleSubmit }) =>
 
                 (
                     <React.Fragment>
-                        <AppTextInput
+                        <AppFormField
                             icon="email"
                             keyboardType="email-address"
                             placeholder='Email'
                             textContentType="emailAddress"
                             autoCorrect={false}
                             autoCapitalize="none"
-                            onChangeText={handleChange('username')}
-                            onBlur={() => setFieldTouched("username")}
-
+                            name="username"
                         />
-                        <ErrorMessage error={errors.username} visible={touched.username} />
-                        <AppTextInput
+                        <AppFormField
                             icon="lock"
                             secureTextEntry={true}
                             placeholder='Password'
                             textContentType="password"
                             autoCorrect={false}
                             autoCapitalize="none"
-                            onChangeText={handleChange('password')}
-                            onBlur={() => setFieldTouched("password")}
-
-
+                            name="password"
                         />
-                        <ErrorMessage error={errors.password} visible={touched.password} />
 
                         <AppButton
                             title="Login"
