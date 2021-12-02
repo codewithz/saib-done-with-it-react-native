@@ -21,6 +21,8 @@ const listings = [
 ]
 
 export default function ListingsScreen(props) {
+
+    const { navigation } = props;
     return (
         <Screen style={styles.screen}>
 
@@ -34,6 +36,7 @@ export default function ListingsScreen(props) {
                             title={item.title}
                             subtitle={"$" + item.price}
                             image={item.image}
+                            onPress={() => navigation.navigate('ListingDetails', item)}
                         />
                 }
             />
