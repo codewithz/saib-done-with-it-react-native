@@ -20,6 +20,7 @@ import RegisterScreen from './app/screens/RegisterScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 const Link = () => {
@@ -33,10 +34,17 @@ const Link = () => {
 }
 
 
-const Tweets = ({ navigation }) => (
+const Tweets = () => (
   <Screen>
     <Text>Tweets</Text>
     <Link />
+  </Screen>
+)
+
+const Account = () => (
+  <Screen>
+    <Text>Accounts</Text>
+
   </Screen>
 )
 
@@ -78,12 +86,21 @@ const StackNavigator = () => (
 );
 
 
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name="Feed" component={Tweets} />
+    <Tab.Screen name="Account" component={Account} />
+  </Tab.Navigator>
+)
+
+
 export default function App() {
 
 
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <TabNavigator />
     </NavigationContainer>
   );
 }
