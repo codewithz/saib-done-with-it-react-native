@@ -23,12 +23,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import AuthNavigator from './app/navigation/AuthNavigator';
+import navigationTheme from './app/navigation/navigationTheme';
 
 
 export default function App() {
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <AuthNavigator />
     </NavigationContainer>
   );
