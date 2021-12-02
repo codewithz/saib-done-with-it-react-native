@@ -21,7 +21,8 @@ const menuItems = [
         icon: {
             name: 'email',
             backgroundColor: colors.secondary
-        }
+        },
+        targetScreen: 'Messages'
     },
 
 
@@ -29,6 +30,8 @@ const menuItems = [
 
 
 export default function AccountScreen(props) {
+
+    const { navigation } = props;
     return (
         <Screen style={styles.screen}>
             <View>
@@ -52,6 +55,7 @@ export default function AccountScreen(props) {
                                     backgroundColor={item.icon.backgroundColor}
                                 />
                             }
+                            onPress={() => navigation.navigate(item.targetScreen)}
                         />
 
                     }
