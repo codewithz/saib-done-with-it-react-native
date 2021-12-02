@@ -10,7 +10,7 @@ export default function ErrorMessage(props) {
     if (!error || !visible) return null;
 
     return (
-        <AppText style={{ color: 'red' }}>{error}</AppText>
+        <AppText style={{ color: 'red', paddingLeft: 20 }}>{error}</AppText>
     )
 }
 
